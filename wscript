@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from os import popen
+import sys
 
 srcdir = '.'
 blddir = 'build'
@@ -36,6 +37,10 @@ def build(bld):
   obj.target = "node-sdl"
   obj.cxxflags = ["-pthread", "-Wall"]
   obj.linkflags = ["-lSDL_ttf", "-lSDL_image"]
-  obj.includes = ["/usr/include/SDL"]
+  if sys.platform.startswith('darwin'):
+    obj.includes = ["/usr/local/include/SDL"]
+  elif sys.platform.startswith('linux'):
+    obj.includes = ["/usr/include/SDL"]
+
   obj.source = ["src/sdl.cc", "src/helpers.cc"]
   obj.uselib = "SDL"
