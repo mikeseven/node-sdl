@@ -357,6 +357,11 @@ Handle<Value> sdl::PollEvent(const Arguments& args) {
       evt->Set(String::New("which"), Number::New(event.jbutton.which));
       evt->Set(String::New("button"), Number::New(event.jbutton.button));
       break;
+    case SDL_VIDEORESIZE:
+      evt->Set(String::New("type"), String::New("VIDEORESIZE"));
+      evt->Set(String::New("width"), Number::New(event.resize.w));
+      evt->Set(String::New("height"), Number::New(event.resize.h));
+      break;
     case SDL_QUIT:
       evt->Set(String::New("type"), String::New("QUIT"));
       break;
