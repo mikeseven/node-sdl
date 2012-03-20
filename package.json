@@ -1,6 +1,6 @@
 {
   "author": "Tim Caswell <tim@creationix.com> (http://creationix.com/)",
-  "name": "sdl",
+  "name": "node-sdl",
   "description": "SDL bindings for node",
   "version": "0.1.7",
   "repository": {
